@@ -1,0 +1,63 @@
+{
+	"options": {
+		"libLinkName": "tcod",
+		"libName": "LibTCOD",
+		"removePrefix": "TCOD_",
+		"outputPath": "src"
+	},
+	"typing": {
+		"collapse": [
+			"int8", "int16", "int32",
+			"uint8", "uint16", "uint32"
+		],
+		"replace": {
+			"bool" : "Bool",
+			"wchar_t": "Char"
+		},
+		"retype": {
+			"function": {
+				"TCOD_console_set_char": {
+					"args": {
+						"c": "wchar_t"
+					}
+				},
+				"TCOD_console_put_char": {
+					"args": {
+						"c": "wchar_t"
+					}
+				},
+				"TCOD_console_put_char_ex": {
+					"args": {
+						"c": "wchar_t"
+					}
+				},
+				"TCOD_console_get_char": {
+					"returnType": "wchar_t"
+				},
+				"TCOD_parser_get_char_property": {
+					"returnType": "wchar_t"
+				},
+				"TCOD_console_set_custom_font": {
+					"args": {
+						"flags": "TCOD_font_flags_t"
+					}
+				}
+			}
+		}
+	},
+	"remove": {
+		"typedef": ["bool", "uintptr", "intptr"]
+	},
+	"rename": {
+		"struct": {
+			"_TCOD_tree_t": "TCOD_tree_t_internal"
+		}
+	},
+	"generator": {
+		"crystal": {
+			"flags": [
+				"TCOD_font_flags_t"
+			]
+		}
+	}
+}
